@@ -1,0 +1,387 @@
+<!-- 
+ NOTE NOTE NOTE NOTE NOTE NOTE NOTE 
+ This code is super sloppy, but it works
+ as a proof of concept for a responsive 
+ horizontal scroll module.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive H-Scroll Module</title>
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8f8f8;
+            margin: 24px 0 0 0;
+            padding: 0;
+        }
+
+        .hilite {
+            position: absolute;
+            width: 12px;
+            height: 100vh;
+            z-index: -10;
+            top: 0;
+            background: #f303;
+            font-size: 12px;
+            text-align: center;
+        }
+        .hilite.left {
+            left: 0;
+        }
+        .hilite.right {
+            right: 0;
+            width: 36px;
+        }
+
+        .scroll-container {
+            margin-left: 12px;
+            margin-right: auto;
+            margin-bottom: 48px;
+            max-width: 100vw;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            margin-right: 12px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-wrap: balance;
+        }
+
+        .nav-buttons {
+            display: none;
+        }
+
+        .scroll-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 18px;
+            padding: 0;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+
+        .scroll-wrapper::-webkit-scrollbar {
+            display: none; /* WebKit */
+        }
+
+        .scroll-item {
+            flex: 0 0 auto;
+            width: calc((100vw - 9rem) / 4);
+            height: auto;
+            aspect-ratio: 4 / 5;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            scroll-snap-align: start;
+            border: 2px solid #2222;
+        }
+        .fiveUp .scroll-item {
+            width: calc((100vw - 10.1rem) / 5);
+        }
+
+        .nav-button {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #666;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #f0f0f0;
+            border-color: #bbb;
+            transform: scale(1.1);
+        }
+
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .nav-button:disabled:hover {
+            background-color: #fff;
+            border-color: #ddd;
+        }
+
+        /* Responsive design for above 900px */
+        @media (min-width: 900px) {
+            .scroll-container {
+                margin-left: 36px;
+            }
+            .scroll-item:last-child {
+            margin-right: 36px; /* Ensure last item has space on the right */
+            }
+            .header {
+                margin-right: 36px;
+            }
+            .nav-buttons {
+                display: flex;
+                gap: 6px;
+            }
+
+            .scroll-wrapper {
+                max-width: 100%;
+            }
+            .hilite {
+                width: 36px;
+            }
+        }
+
+        @media (max-width: 899px) {
+            .scroll-item {
+                width: calc((100vw - 4.5rem) / 2);
+
+            }
+            .fiveUp .scroll-item {
+                width: calc((100vw - 5.25rem) / 3);
+
+            }
+
+            .scroll-item:last-child {
+                margin-right: 12px; /* Ensure last item has space on the right */
+            }
+            .scroll-wrapper {
+                gap: 12px;
+            }
+        }
+
+        /* Additional styling for better visual hierarchy */
+        .scroll-item:nth-child(odd) {
+            background-color: #d0d0d0;
+        }
+
+        .scroll-item:hover {
+            background-color: #c0c0c0;
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="hilite left"></div>
+    <div class="hilite right"></div>
+    <div class="scroll-container">
+        <div class="header">
+            <h2 class="title">Horizontal Scroll Module Demo</h2>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">‹</button>
+                <button class="nav-button next" id="nextBtn">›</button>
+            </div>
+        </div>
+        <div class="scroll-wrapper" id="scrollWrapper">
+            <div class="scroll-item" id="firstScrollItem">
+                <div id="widthDisplay">W: 0px</div>
+            </div>
+            <div class="scroll-item">2</div>
+            <div class="scroll-item">3</div>
+            <div class="scroll-item">4</div>
+            <div class="scroll-item">5</div>
+            <div class="scroll-item">6</div>
+            <div class="scroll-item">7</div>
+            <div class="scroll-item">8</div>
+            <div class="scroll-item">9</div>
+            <div class="scroll-item">10</div>
+        </div>
+        <p id="viewportDisplay" style="margin-top: 18px;">Viewport: 0px</p>
+    </div>
+
+    <div class="scroll-container">
+        <div class="header">
+            <h2 class="title">Second Horizontal Scroll Module</h2>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn2">‹</button>
+                <button class="nav-button next" id="nextBtn2">›</button>
+            </div>
+        </div>
+        <div class="scroll-wrapper fiveUp" id="scrollWrapper2">
+            <div class="scroll-item" id="firstScrollItem2">
+                <div id="widthDisplay2">W: 0px</div>
+            </div>
+            <div class="scroll-item">2</div>
+            <div class="scroll-item">3</div>
+            <div class="scroll-item">4</div>
+            <div class="scroll-item">5</div>
+            <div class="scroll-item">6</div>
+            <div class="scroll-item">7</div>
+            <div class="scroll-item">8</div>
+            <div class="scroll-item">9</div>
+            <div class="scroll-item">10</div>
+        </div>
+    </div>
+
+    <script>
+        // Create a reusable scroller class
+        class HorizontalScroller {
+            constructor(wrapperId, prevBtnId, nextBtnId, firstItemId, widthDisplayId, viewportDisplayId) {
+                this.scrollWrapper = document.getElementById(wrapperId);
+                this.prevBtn = document.getElementById(prevBtnId);
+                this.nextBtn = document.getElementById(nextBtnId);
+                this.firstScrollItem = document.getElementById(firstItemId);
+                this.widthDisplay = document.getElementById(widthDisplayId);
+                this.viewportDisplay = document.getElementById(viewportDisplayId);
+                
+                this.itemWidth = 280;
+                this.gap = 20;
+                this.scrollDistance = this.itemWidth + this.gap;
+                
+                this.init();
+            }
+            
+            updateWidthDisplay() {
+                if (this.firstScrollItem && this.widthDisplay) {
+                    const actualWidth = this.firstScrollItem.getBoundingClientRect().width;
+                    this.widthDisplay.textContent = `Card width: ${Math.round(actualWidth)}px`;
+                }
+            }
+
+            updateViewportDisplay() {
+                if (this.viewportDisplay) {
+                    const viewportWidth = window.innerWidth;
+                    this.viewportDisplay.textContent = `Viewport: ${viewportWidth}px`;
+                }
+            }
+
+            updateButtonStates() {
+                if (this.prevBtn && this.nextBtn && this.scrollWrapper) {
+                    const maxScroll = this.scrollWrapper.scrollWidth - this.scrollWrapper.clientWidth;
+                    this.prevBtn.disabled = this.scrollWrapper.scrollLeft <= 0;
+                    this.nextBtn.disabled = this.scrollWrapper.scrollLeft >= maxScroll - 1;
+                }
+            }
+
+            scrollToPosition(direction) {
+                if (!this.scrollWrapper) return;
+                
+                const currentScrollLeft = this.scrollWrapper.scrollLeft;
+                let newScrollLeft;
+                
+                if (direction === 'next') {
+                    newScrollLeft = currentScrollLeft + this.scrollDistance;
+                } else {
+                    newScrollLeft = currentScrollLeft - this.scrollDistance;
+                }
+                
+                this.scrollWrapper.scrollTo({
+                    left: newScrollLeft,
+                    behavior: 'smooth'
+                });
+            }
+
+            handleResize() {
+                const windowWidth = window.innerWidth;
+                let newItemWidth, newGap;
+                
+                if (windowWidth <= 600) {
+                    newItemWidth = 220;
+                    newGap = 12;
+                } else if (windowWidth <= 940) {
+                    newItemWidth = 250;
+                    newGap = 15;
+                } else {
+                    newItemWidth = 280;
+                    newGap = 20;
+                }
+                
+                this.scrollDistance = newItemWidth + newGap;
+                this.updateWidthDisplay();
+                this.updateViewportDisplay();
+            }
+
+            init() {
+                if (this.prevBtn) {
+                    this.prevBtn.addEventListener('click', () => {
+                        this.scrollToPosition('prev');
+                    });
+                }
+
+                if (this.nextBtn) {
+                    this.nextBtn.addEventListener('click', () => {
+                        this.scrollToPosition('next');
+                    });
+                }
+
+                if (this.scrollWrapper) {
+                    this.scrollWrapper.addEventListener('scroll', () => {
+                        this.updateButtonStates();
+                    });
+                }
+                
+                // Initial button state
+                this.updateButtonStates();
+                
+                // Handle resize
+                window.addEventListener('resize', () => {
+                    this.handleResize();
+                });
+                
+                // Initialize displays
+                this.handleResize();
+                
+                // Update on load
+                window.addEventListener('load', () => {
+                    this.updateWidthDisplay();
+                    this.updateViewportDisplay();
+                });
+            }
+        }
+
+        // Initialize both scrollers
+        const scroller1 = new HorizontalScroller(
+            'scrollWrapper', 
+            'prevBtn', 
+            'nextBtn', 
+            'firstScrollItem', 
+            'widthDisplay', 
+            'viewportDisplay'
+        );
+
+        const scroller2 = new HorizontalScroller(
+            'scrollWrapper2', 
+            'prevBtn2', 
+            'nextBtn2', 
+            'firstScrollItem2', 
+            'widthDisplay2', 
+            'viewportDisplay2'
+        );
+    </script>
+</body>
+</html>
