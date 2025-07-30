@@ -1,6 +1,6 @@
 <!-- 
  NOTE NOTE NOTE NOTE NOTE NOTE NOTE 
- This code is super sloppy, but it works
+ This code is rough, but it works
  as a proof of concept for a responsive 
  horizontal scroll module.
  -->
@@ -44,10 +44,11 @@
         }
 
         .scroll-container {
-            margin-left: 12px;
-            margin-right: auto;
+            /* margin-left: 0;
+            margin-right: auto; */
             margin-bottom: 48px;
             max-width: 100vw;
+            position: relative; /* Enable absolute positioning for nav buttons */
         }
 
         .header {
@@ -67,6 +68,43 @@
 
         .nav-buttons {
             display: none;
+            position: absolute;
+            width: 100%;
+            pointer-events: none;
+            z-index: 20;
+            top: 36px; /* Offset for header height */
+            bottom: 0;
+        }
+
+        .nav-button {
+            pointer-events: auto;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #666;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            transition: all 3s ease-in;
+        }
+
+        .nav-button.prev {
+            left: 0px; /* Position to overhang the card by 12px */
+        }
+
+        .nav-button.next {
+            right: 12px;
         }
 
         .scroll-wrapper {
@@ -104,48 +142,34 @@
             width: calc((100vw - 10.1rem) / 5);
         }
 
-        .nav-button {
-            width: 50px;
-            height: 50px;
-            background-color: #fff;
-            border: 2px solid #ddd;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #666;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
         .nav-button:hover {
-            background-color: #f0f0f0;
+            background-color: rgba(240, 240, 240, 0.95);
             border-color: #bbb;
-            transform: scale(1.1);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .nav-button:active {
-            transform: scale(0.95);
+            transform: translateY(-50%) scale(0.95);
         }
 
         .nav-button:disabled {
             opacity: 0.5;
+            display: none;
             cursor: not-allowed;
-            transform: scale(1);
+            transform: translateY(-50%) scale(1);
         }
 
         .nav-button:disabled:hover {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.95);
             border-color: #ddd;
+            transform: translateY(-50%) scale(1);
         }
 
         /* Responsive design for above 900px */
         @media (min-width: 900px) {
             .scroll-container {
-                margin-left: 36px;
+                /* margin-left: 36px; */
+                padding-left: 36px;
             }
             .scroll-item:last-child {
             margin-right: 36px; /* Ensure last item has space on the right */
@@ -154,10 +178,14 @@
                 margin-right: 36px;
             }
             .nav-buttons {
-                display: flex;
-                gap: 6px;
+                display: block;
             }
-
+            .nav-button.prev {
+                left: 0px; /* 36px margin - 12px overhang = 24px */
+            }
+            .nav-button.next {
+                right: 60px;
+            }
             .scroll-wrapper {
                 max-width: 100%;
             }
@@ -202,10 +230,10 @@
     <div class="scroll-container">
         <div class="header">
             <h2 class="title">Horizontal Scroll Module Demo</h2>
-            <div class="nav-buttons">
-                <button class="nav-button prev" id="prevBtn">‹</button>
-                <button class="nav-button next" id="nextBtn">›</button>
-            </div>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-button prev" id="prevBtn">‹</button>
+            <button class="nav-button next" id="nextBtn">›</button>
         </div>
         <div class="scroll-wrapper" id="scrollWrapper">
             <div class="scroll-item" id="firstScrollItem">
@@ -220,6 +248,8 @@
             <div class="scroll-item">8</div>
             <div class="scroll-item">9</div>
             <div class="scroll-item">10</div>
+            <div class="scroll-item">11</div>
+            <div class="scroll-item">12</div>
         </div>
         <p id="viewportDisplay" style="margin-top: 18px;">Viewport: 0px</p>
     </div>
@@ -227,10 +257,10 @@
     <div class="scroll-container">
         <div class="header">
             <h2 class="title">Second Horizontal Scroll Module</h2>
-            <div class="nav-buttons">
-                <button class="nav-button prev" id="prevBtn2">‹</button>
-                <button class="nav-button next" id="nextBtn2">›</button>
-            </div>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-button prev" id="prevBtn2">‹</button>
+            <button class="nav-button next" id="nextBtn2">›</button>
         </div>
         <div class="scroll-wrapper fiveUp" id="scrollWrapper2">
             <div class="scroll-item" id="firstScrollItem2">
@@ -245,6 +275,8 @@
             <div class="scroll-item">8</div>
             <div class="scroll-item">9</div>
             <div class="scroll-item">10</div>
+            <div class="scroll-item">11</div>
+            <div class="scroll-item">12</div>
         </div>
     </div>
 
@@ -255,24 +287,22 @@
                 this.scrollWrapper = document.getElementById(wrapperId);
                 this.prevBtn = document.getElementById(prevBtnId);
                 this.nextBtn = document.getElementById(nextBtnId);
-                this.firstScrollItem = document.getElementById(firstItemId);
+
+            // display the width of the card and viewport (just for design purpooses)
+                this.firstScrollItem = document.getElementById(firstItemId); 
                 this.widthDisplay = document.getElementById(widthDisplayId);
                 this.viewportDisplay = document.getElementById(viewportDisplayId);
                 
-                this.itemWidth = 280;
-                this.gap = 20;
-                this.scrollDistance = this.itemWidth + this.gap;
-                
                 this.init();
             }
-            
+
+// display the width of the card (for design purpooses)
             updateWidthDisplay() {
                 if (this.firstScrollItem && this.widthDisplay) {
                     const actualWidth = this.firstScrollItem.getBoundingClientRect().width;
                     this.widthDisplay.textContent = `Card width: ${Math.round(actualWidth)}px`;
                 }
             }
-
             updateViewportDisplay() {
                 if (this.viewportDisplay) {
                     const viewportWidth = window.innerWidth;
@@ -292,12 +322,14 @@
                 if (!this.scrollWrapper) return;
                 
                 const currentScrollLeft = this.scrollWrapper.scrollLeft;
+                const containerWidth = this.scrollWrapper.clientWidth;
+                const scrollAmount = containerWidth * 0.8; // Scroll by 80% of visible width
                 let newScrollLeft;
                 
                 if (direction === 'next') {
-                    newScrollLeft = currentScrollLeft + this.scrollDistance;
+                    newScrollLeft = currentScrollLeft + scrollAmount;
                 } else {
-                    newScrollLeft = currentScrollLeft - this.scrollDistance;
+                    newScrollLeft = currentScrollLeft - scrollAmount;
                 }
                 
                 this.scrollWrapper.scrollTo({
@@ -307,21 +339,6 @@
             }
 
             handleResize() {
-                const windowWidth = window.innerWidth;
-                let newItemWidth, newGap;
-                
-                if (windowWidth <= 600) {
-                    newItemWidth = 220;
-                    newGap = 12;
-                } else if (windowWidth <= 940) {
-                    newItemWidth = 250;
-                    newGap = 15;
-                } else {
-                    newItemWidth = 280;
-                    newGap = 20;
-                }
-                
-                this.scrollDistance = newItemWidth + newGap;
                 this.updateWidthDisplay();
                 this.updateViewportDisplay();
             }
