@@ -1,0 +1,731 @@
+<!-- 
+ NOTE NOTE NOTE NOTE NOTE NOTE NOTE 
+ This code is rough, but it works
+ as a proof of concept for a responsive 
+ horizontal scroll module.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Prototype</title>
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <main>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Today's top picks for you</h2>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$89.50</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$42.75</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$67.25</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$33.00</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$55.99</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$78.50</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$19.75</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$96.25</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$45.00</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$72.99</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$38.50</div>
+                </div>
+                <div class="scroll-item">
+                    <div class="favorite-icon"></div>
+                    <div class="price">$124.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Best deals in 60 days</h2>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
+                <div class="scroll-item ratio-1-1">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$52.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$29.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$18.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$64.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$87.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$35.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$41.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$93.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$26.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$75.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$58.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$119.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Junk Journaling</h2>
+                <p>Recycled journal supplies</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-5-4" id="scrollWrapper">
+                <div class="scroll-item one">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$22.99</div>
+                </div>
+                <div class="scroll-item two">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$17.50</div>
+                </div>
+                <div class="scroll-item three">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$5.25</div>
+                </div>
+                <div class="scroll-item four">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$9.99</div>
+                </div>
+                <div class="scroll-item five">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$11.50</div>
+                </div>
+                <div class="scroll-item six">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$6.75</div>
+                </div>
+                <div class="scroll-item seven">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$9.00</div>
+                </div>
+                <div class="scroll-item eight">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$8.25</div>
+                </div>
+                <div class="scroll-item nine">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$8.99</div>
+                </div>
+                <div class="scroll-item ten">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$6.50</div>
+                </div>
+                <div class="scroll-item eleven">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$5.75</div>
+                </div>
+                <div class="scroll-item twelve">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$4.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Mixed Metal Jewelry</h2>
+                <p>Statement piece style</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$47.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$83.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$29.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$65.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$39.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$92.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$18.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$71.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$54.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$37.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$109.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$79.50</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Recommended for you</h2>
+                <p>Ads based on your activity</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$63.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$21.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$88.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$41.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$76.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$32.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$59.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$103.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$27.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$85.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$49.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$118.50</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">It's all in the Details</h2>
+                <p>Ornate style</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-5-4" id="scrollWrapper">
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$56.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$24.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$91.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$43.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$68.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$36.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$82.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$17.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$73.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$51.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$107.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$39.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Spectrum of Purples</h2>
+                <p>Rich purple hues</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$74.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$48.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$22.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$95.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$61.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$34.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$87.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$41.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$115.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$29.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$66.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$53.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Storage and Organization</h2>
+                <p>Editors' Picks</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$45.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$78.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$23.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$92.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$57.00</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$31.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$84.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$19.50</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$68.99</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$112.25</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$37.75</div>
+                </div>
+                <div class="scroll-item">
+                    
+                    <div class="favorite-icon"></div>
+                    <div class="price">$76.00</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        // Enhanced reusable scroller class that auto-initializes from DOM
+        class HorizontalScroller {
+            constructor(container) {
+                this.container = container;
+                this.scrollWrapper = container.querySelector('.scroll-wrapper');
+                this.prevBtn = container.querySelector('.nav-button.prev');
+                this.nextBtn = container.querySelector('.nav-button.next');
+                
+                this.init();
+            }
+
+
+
+            updateButtonStates() {
+                if (this.prevBtn && this.nextBtn && this.scrollWrapper) {
+                    const maxScroll = this.scrollWrapper.scrollWidth - this.scrollWrapper.clientWidth;
+                    this.prevBtn.disabled = this.scrollWrapper.scrollLeft <= 0;
+                    this.nextBtn.disabled = this.scrollWrapper.scrollLeft >= maxScroll - 1;
+                }
+            }
+
+            scrollToPosition(direction) {
+                if (!this.scrollWrapper) return;
+                
+                const currentScrollLeft = this.scrollWrapper.scrollLeft;
+                const containerWidth = this.scrollWrapper.clientWidth;
+                const scrollAmount = containerWidth * 0.8; // Scroll by 80% of visible width
+                let newScrollLeft;
+                
+                if (direction === 'next') {
+                    newScrollLeft = currentScrollLeft + scrollAmount;
+                } else {
+                    newScrollLeft = currentScrollLeft - scrollAmount;
+                }
+                
+                this.scrollWrapper.scrollTo({
+                    left: newScrollLeft,
+                    behavior: 'smooth'
+                });
+            }
+
+            handleResize() {
+            }
+
+            init() {
+                if (this.prevBtn) {
+                    this.prevBtn.addEventListener('click', () => {
+                        this.scrollToPosition('prev');
+                    });
+                }
+
+                if (this.nextBtn) {
+                    this.nextBtn.addEventListener('click', () => {
+                        this.scrollToPosition('next');
+                    });
+                }
+
+                if (this.scrollWrapper) {
+                    this.scrollWrapper.addEventListener('scroll', () => {
+                        this.updateButtonStates();
+                    });
+                }
+                
+                // Initial button state
+                this.updateButtonStates();
+                
+                // Handle resize
+                window.addEventListener('resize', () => {
+                    this.handleResize();
+                });
+                
+            }
+        }
+
+        // Auto-initialize all scroll containers on the page
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollContainers = document.querySelectorAll('.scroll-container');
+            scrollContainers.forEach(container => {
+                new HorizontalScroller(container);
+            });
+        });
+    </script>
+</body>
+</html>

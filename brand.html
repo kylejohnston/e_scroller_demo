@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Prototype</title>
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="wrapper">
+            <div class="logo" style="background-color: #fff;">
+                <svg width="96" height="48" viewBox="0 0 96 48" fill="none" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <path d="M18.7401 10.1145C18.7401 9.74459 18.777 9.5226 19.4058 9.5226H27.8768C29.3565 9.5226 30.1704 10.7802 30.7623 13.1478L31.2431 15.0342H32.6859C32.9447 9.6705 33.1667 7.34011 33.1667 7.34011C33.1667 7.34011 29.5415 7.74718 27.396 7.74718H16.5577L10.75 7.5621V9.11579L12.7105 9.48568C14.0794 9.74459 14.4121 10.0404 14.5231 11.2983C14.5231 11.2983 14.6341 14.9973 14.6341 21.1008C14.6341 27.2045 14.5231 30.8665 14.5231 30.8665C14.5231 31.9762 14.0794 32.3831 12.7105 32.6419L10.75 33.0119V34.5655L16.5577 34.3807H26.2494C28.4319 34.3807 33.4995 34.5655 33.4995 34.5655C33.6105 33.2339 34.3502 27.2045 34.4613 26.5385H33.0926L31.65 29.8307C30.5033 32.4202 28.8387 32.605 26.9891 32.605H21.4776C19.6278 32.605 18.7401 31.8653 18.7401 30.2746V21.8405C18.7401 21.8405 22.8462 21.8405 24.1779 21.9515C25.2135 22.0256 25.8423 22.3214 26.1752 23.7641L26.6192 25.6877H28.2099L28.0988 20.8418L28.3208 15.9591H26.7303L26.2122 18.1046C25.8795 19.5101 25.6575 19.769 24.2149 19.9172C22.3284 20.102 18.7401 20.0651 18.7401 20.0651V10.1145ZM67.4943 40.558C66.3846 40.558 66.0516 40.0402 65.9037 39.3004L65.3487 36.415L63.7953 36.4891C63.5733 38.1907 63.2403 40.1143 62.7964 41.6308C63.8322 42.3337 65.0898 42.6667 66.7914 42.6667C69.3069 42.6667 73.08 41.9637 76.4832 33.9367L82.4018 19.9172C82.8827 18.8075 83.0306 18.6593 84.4733 18.1046L85.25 17.8085V16.514L81.7358 16.6988L77.9999 16.514V17.8085L78.9614 18.1046C79.9232 18.4004 80.3672 18.7335 80.3672 19.5101C80.3672 19.9172 80.2562 20.102 80.0342 20.6198C79.6274 21.6557 77.001 28.1291 75.7064 30.9403C74.0787 26.8714 71.8593 20.8049 71.6004 19.9172C71.5263 19.6952 71.4894 19.5101 71.4894 19.3253C71.4894 18.7335 71.8962 18.2526 72.7842 18.0674L74.0049 17.8085V16.514L68.937 16.6988L64.905 16.514V17.8085L65.5707 18.0305C66.5325 18.3635 66.6435 18.4745 67.2723 19.88C69.8247 25.6508 72.6732 33.0119 73.5978 35.4163C71.6004 39.4483 69.2328 40.558 67.4943 40.558ZM52.3651 28.6099L50.9593 28.6469C51.1444 30.4226 51.1813 32.1982 50.9593 33.8258C50.9593 33.8258 53.7706 34.8617 56.6191 34.8617C60.466 34.8617 63.5364 33.0119 63.5364 29.4238C63.5364 23.1353 54.2146 24.134 54.2146 19.9172C54.2146 18.1784 55.8052 17.5127 57.4327 17.5127C58.8016 17.5127 59.9113 17.9936 60.1332 18.6966L61.0579 21.4706L62.4265 21.3968C62.5005 19.9172 62.6115 18.2156 62.8335 16.8468C61.6497 16.3289 59.1714 16.0331 57.6178 16.0331C53.9926 16.0331 51.0703 17.6238 51.0703 21.1748C51.0703 27.3893 60.1702 26.0206 60.1702 30.6815C60.1702 32.2351 59.1715 33.4189 56.9518 33.4189C54.8434 33.4189 53.8075 32.3462 53.4007 31.2734L52.3651 28.6099ZM40.7129 11.1504C39.9359 15.6261 37.7906 17.2538 35.1641 17.5496V18.8444H38.4563V30.2006C38.4563 33.3817 40.565 34.9355 43.3763 34.9355C45.5587 34.9355 47.8151 34.0109 48.592 32.0873L47.815 31.0885C47.4451 31.7173 46.2614 32.6419 44.7818 32.6419C43.1543 32.6419 42.2666 31.5323 42.2666 28.721V18.6966L47.7412 19.1033L48.037 16.5879L42.2666 16.8099V11.1504H40.7129Z" fill="#F1641E"/>
+                </svg>
+            </div>
+            <div class="search">
+                <p>Search for anything</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </div>
+            <!-- <div class="signin"><p>Sign In</p></div> -->
+            <div class="cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.766 5L5.148 2H1V4H3.518L5.688 14.535L6.18 17H20.486L22.886 5H5.767H5.766ZM7.82 15L6.22 7H20.447L18.847 15H7.82Z" fill="#444444"/>
+                    <path d="M10.666 20.5C10.666 20.8978 10.508 21.2794 10.2267 21.5607C9.94537 21.842 9.56384 22 9.16602 22C8.76819 22 8.38666 21.842 8.10536 21.5607C7.82405 21.2794 7.66602 20.8978 7.66602 20.5C7.66602 20.1022 7.82405 19.7206 8.10536 19.4393C8.38666 19.158 8.76819 19 9.16602 19C9.56384 19 9.94537 19.158 10.2267 19.4393C10.508 19.7206 10.666 20.1022 10.666 20.5ZM19 20.5C19 20.8978 18.842 21.2794 18.5607 21.5607C18.2794 21.842 17.8978 22 17.5 22C17.1022 22 16.7207 21.842 16.4394 21.5607C16.1581 21.2794 16 20.8978 16 20.5C16 20.1022 16.1581 19.7206 16.4394 19.4393C16.7207 19.158 17.1022 19 17.5 19C17.8978 19 18.2794 19.158 18.5607 19.4393C18.842 19.7206 19 20.1022 19 20.5Z" fill="#444444"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Welcome back!</h2>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-4-5 welcome" id="scrollWrapper">
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-1.webp" alt="Item title and description">
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-2.webp" alt="Item title and description">
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-3.webp" alt="Item title and description">
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-4.webp" alt="Item title and description">
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-5.webp" alt="Item title and description">
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-6.webp" alt="Item title and description">
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-7.webp" alt="Item title and description">
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-8.webp" alt="Item title and description">
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Today's top picks for you</h2>
+                <!-- <p>View all</p> -->
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
+                <div class="scroll-item" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.4221303872_o0ym.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$89.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.4528080418_fy9a.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$42.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.4642210206_fu34.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$67.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.4992591724_o97x.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$33.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.5028368596_ah31.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$55.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.5309273310_k8au.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$78.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.5376646088_8ljl.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$19.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.5650569457_8402.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$96.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.5695575676_6aya.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$45.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.5828312050_ogyo.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$72.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.6070330544_ctoc.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$38.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.6266712751_pmfw.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$124.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Best deals in 60 days</h2>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
+                <div class="scroll-item ratio-1-1" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.1882952760_6mvk.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$52.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.1979354918_faji.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$29.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.2318749285_ezjn.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$18.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.2948952511_jguk.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$64.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.4919184983_o3og.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$87.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.5372742884_ocw4.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$35.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.5389320187_gipx.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$41.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.5827645868_lzz2.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$93.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.6136617647_mx48.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$26.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.6388452938_rvr4.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$75.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.6602249187_k7cl.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$58.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.6738024986_nn1f.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$119.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Junk Journaling</h2>
+                <p>Recycled journal supplies</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-5-4" id="scrollWrapper">
+                <div class="scroll-item one" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.3572809372_3z8r.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$22.99</div>
+                </div>
+                <div class="scroll-item two">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.3742557429_cmmt.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$17.50</div>
+                </div>
+                <div class="scroll-item three">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.4329657276_cck9.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$5.25</div>
+                </div>
+                <div class="scroll-item four">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.4614701260_hddz.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$9.99</div>
+                </div>
+                <div class="scroll-item five">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.4925184521_pw3n.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$11.50</div>
+                </div>
+                <div class="scroll-item six">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.4964738831_7h1u.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$6.75</div>
+                </div>
+                <div class="scroll-item seven">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.5758357383_4oda.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$9.00</div>
+                </div>
+                <div class="scroll-item eight">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.5792606827_1fs8.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$8.25</div>
+                </div>
+                <div class="scroll-item nine">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.5910828785_r3nw.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$8.99</div>
+                </div>
+                <div class="scroll-item ten">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.5973810503_geug.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$6.50</div>
+                </div>
+                <div class="scroll-item eleven">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.6141528283_56gt.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$5.75</div>
+                </div>
+                <div class="scroll-item twelve">
+                    <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.6159835136_1yae.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$4.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Mixed Metal Jewelry</h2>
+                <p>Statement piece style</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
+                <div class="scroll-item" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.2273317567_aqxd.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$47.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.3468946161_4it8.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$83.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.4608721961_19nr.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$29.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.4613169331_rvnx.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$65.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.4888530949_n903.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$39.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.4897158583_m7kd.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$92.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.4903259015_aadu.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$18.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.5258400459_asai.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$71.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.5348687704_bqez.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$54.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.5364612387_5jvi.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$37.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.5666783307_fkro.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$109.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.6008761108_s913.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$79.50</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Recommended for you</h2>
+                <p>Ads based on your activity</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
+                <div class="scroll-item" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.1883035505_os2k.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$63.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.2054755050_a8d9.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$21.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.3401099192_4p30.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$88.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.3694751424_8l59.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$41.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.3931471950_oskw.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$76.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.3950821286_qro2.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$32.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.4616749488_oxbc.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$59.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.4824266798_f8a6.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$103.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.4972297679_mcuq.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$27.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.5306681820_97eu.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$85.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.5801409631_qfue.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$49.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.5852157540_mpcz.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$118.50</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">It's all in the Details</h2>
+                <p>Ornate style</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-5-4" id="scrollWrapper">
+                <div class="scroll-item" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.2253818447_q9hq.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$56.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.2711134540_5i0a.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$24.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.3029018219_lu3q.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$91.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.3339800693_aox9.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$43.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.4073951025_l1v4.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$68.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.4265974370_jdne.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$36.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.4387391040_r3xn.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$82.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.4975541218_hw9o.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$17.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.5105001021_dhej.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$73.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.5648139334_rpyh.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$51.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.6057141265_d9qw.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$107.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.6155908615_n9ns.avif" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$39.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Spectrum of Purples</h2>
+                <p>Rich purple hues</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
+                <div class="scroll-item" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.3234107217_o3wt.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$74.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.3489716181_p0n2.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$48.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.3760002208_qr14.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$22.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.4606900404_6lqo.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$95.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.5156506830_laia.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$61.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.5403598599_asdu.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$34.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.5974787765_i7yp.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$87.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.6059858674_9lpy.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$41.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.6125627157_p4d4.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$115.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.6142838581_jg11.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$29.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.6145938887_1oa0.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$66.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.6151137865_mffd.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$53.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <div class="header">
+                <h2 class="title">Storage and Organization</h2>
+                <p>Editors' Picks</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
+                    </svg>
+                </button>
+                <button class="nav-button next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
+                <div class="scroll-item" id="firstScrollItem">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.1058517630_qxej.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$45.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.2154099922_3l2v.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$78.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.3668581593_e52n.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$23.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.4387435314_474i.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$92.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.4905656664_kena.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$57.00</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.5397185439_7u9o.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$31.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.5818522284_opor.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$84.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.5852559743_lve1.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$19.50</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.5968183000_ogpy.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$68.99</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.6086451902_o9pw.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$112.25</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.6153662502_mrvt.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$37.75</div>
+                </div>
+                <div class="scroll-item">
+                    <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.6324567026_c1ie.webp" alt="Item title and description">
+                    <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
+                    <div class="price">$76.00</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    
+    
+    <script>
+        // Enhanced reusable scroller class that auto-initializes from DOM
+        class HorizontalScroller {
+            constructor(container) {
+                this.container = container;
+                this.scrollWrapper = container.querySelector('.scroll-wrapper');
+                this.prevBtn = container.querySelector('.nav-button.prev');
+                this.nextBtn = container.querySelector('.nav-button.next');
+                this.firstScrollItem = container.querySelector('.scroll-item');
+                this.widthDisplay = container.querySelector('[id*="widthDisplay"]');
+                
+                this.init();
+            }
+            
+            // Display the width of the card (for design purposes)
+            updateWidthDisplay() {
+                if (this.firstScrollItem && this.widthDisplay) {
+                    const actualWidth = this.firstScrollItem.getBoundingClientRect().width;
+                    this.widthDisplay.textContent = `Card width: ${Math.round(actualWidth)}px`;
+                }
+            }
+            
+            
+            updateButtonStates() {
+                if (this.prevBtn && this.nextBtn && this.scrollWrapper) {
+                    const maxScroll = this.scrollWrapper.scrollWidth - this.scrollWrapper.clientWidth;
+                    this.prevBtn.disabled = this.scrollWrapper.scrollLeft <= 0;
+                    this.nextBtn.disabled = this.scrollWrapper.scrollLeft >= maxScroll - 1;
+                }
+            }
+            
+            scrollToPosition(direction) {
+                if (!this.scrollWrapper) return;
+                
+                const currentScrollLeft = this.scrollWrapper.scrollLeft;
+                const containerWidth = this.scrollWrapper.clientWidth;
+                const scrollAmount = containerWidth * 0.8; // Scroll by 80% of visible width
+                let newScrollLeft;
+                
+                if (direction === 'next') {
+                    newScrollLeft = currentScrollLeft + scrollAmount;
+                } else {
+                    newScrollLeft = currentScrollLeft - scrollAmount;
+                }
+                
+                this.scrollWrapper.scrollTo({
+                    left: newScrollLeft,
+                    behavior: 'smooth'
+                });
+            }
+            
+            handleResize() {
+                this.updateWidthDisplay();
+            }
+            
+            init() {
+                if (this.prevBtn) {
+                    this.prevBtn.addEventListener('click', () => {
+                        this.scrollToPosition('prev');
+                    });
+                }
+                
+                if (this.nextBtn) {
+                    this.nextBtn.addEventListener('click', () => {
+                        this.scrollToPosition('next');
+                    });
+                }
+                
+                if (this.scrollWrapper) {
+                    this.scrollWrapper.addEventListener('scroll', () => {
+                        this.updateButtonStates();
+                    });
+                }
+                
+                // Initial button state
+                this.updateButtonStates();
+                
+                // Handle resize
+                window.addEventListener('resize', () => {
+                    this.handleResize();
+                });
+                
+                // Initialize displays
+                this.handleResize();
+                
+                // Update on load
+                window.addEventListener('load', () => {
+                    this.updateWidthDisplay();
+                });
+            }
+        }
+        
+        // Auto-initialize all scroll containers on the page
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollContainers = document.querySelectorAll('.scroll-container');
+            scrollContainers.forEach(container => {
+                new HorizontalScroller(container);
+            });
+        });
+    </script>
+</body>
+</html>
