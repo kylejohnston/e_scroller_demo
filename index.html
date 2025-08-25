@@ -11,375 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Prototype</title>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #fff;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        header {
-            width: 100%;
-            height: 100px;
-            background-color: #fff;
-            border-bottom: 2px solid #f0f0f0;
-            padding: 0 12px;
-            margin-bottom: 18px;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-        }
-            .wrapper {
-                width: 100%;
-                max-width: 1400px;
-                margin: 0 auto;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 8px;
-            }
-            .logo {
-                width: 96px;
-                height: 48px;
-                background-color: #ABABAB;
-                border-radius: 99px;
-            }
-            .search {
-                width: 100%;
-                height: 48px;
-                padding: 0 16px;
-                background-color: #fff;
-                border: 2px solid #545454;
-                border-radius: 99px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                color: #757575;
-            }
-            .search svg {
-                width: 24px;
-                height: 24px;
-                color: #222;
-            }
-            .signin {
-                width: 80px;
-                height: 48px;
-                color: #222;
-                background-color: #fff0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .cart {
-                width: 48px;
-                height: 48px;
-                display: flex;
-                align-items: center;
-                /* background-color: #fff; */
-                /* border: 2px solid #545454;
-                border-radius: 99px; */
-            }
-            .cart svg {
-                width: 36px;
-                height: 36px;
-                color: #222;
-            }
-        footer {
-            width: 100%;
-            height: 400px;
-            background-color: #f0f0f0;
-            margin-top: 36px;
-        }
-        main {
-            margin: 0;
-            padding: 0 0 0 12px;
-        }
-
-
-        .scroll-container {
-            margin-bottom: 36px;
-            max-width: 100vw;
-            position: relative; /* Enable absolute positioning for nav buttons */
-        }
-
-        .header {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            /* align-items: center; */
-            margin-bottom: 12px;
-            margin-right: 12px;
-            /* gap: 12px; */
-        }
-
-        .title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #222;
-            text-wrap: balance;
-        }
-
-        .header p {
-            color: #595959;
-            position: relative;
-            top: 3px;
-            font-size: 13px;
-        }
-
-        .nav-buttons {
-            display: none;
-            position: absolute;
-            width: 100%;
-            pointer-events: none;
-            z-index: 20;
-            top: 36px; /* Offset for header height */
-            bottom: 0;
-        }
-
-        .nav-button {
-            pointer-events: auto;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background-color: #222;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #666;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-            border: 1px solid #fff6;
-        }
-
-        .nav-button.prev {
-            left: 0; /* Position to overhang the card by 12px */
-            margin-left: -12px;
-        }
-
-        .nav-button.next {
-            right: 12px;
-        }
-
-        .scroll-wrapper {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            gap: 18px;
-            padding: 0;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* Internet Explorer 10+ */
-        }
-
-        .scroll-wrapper::-webkit-scrollbar {
-            display: none; /* WebKit */
-        }
-
-        .scroll-item {
-            flex: 0 0 auto;
-            width: calc((100vw - 9rem) / 4);
-            height: auto;
-            /* aspect-ratio: 4 / 5; */
-            /* background-color: #e0e0e0; */
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            scroll-snap-align: start;
-            /* border: 2px solid #2222; */
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .ratio-4-5 .scroll-item {
-            aspect-ratio: 4 / 5;
-        }
-        .ratio-1-1 .scroll-item  {
-            aspect-ratio: 1 / 1;
-        }
-        .ratio-5-4 .scroll-item {
-            aspect-ratio: 5 / 4;
-        }
-
-        .scroll-item .key-visual {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-
-        .scroll-item > div {
-            position: absolute;
-            bottom: 8px;
-            left: 8px;
-            z-index: 2;
-            background-color: white;
-            border: 1px solid #949494;
-            font-size: 13px;
-            padding: 4px 8px;
-            border-radius: 999px;
-        }
-
-        .scroll-item .favorite-icon {
-            position: absolute;
-            top: 14px;
-            right: 8px;
-            z-index: 3;
-            width: 36px;
-            height: 36px;
-            opacity: 0;
-            transition: all 300ms ease;
-            cursor: pointer;
-        }
-
-        .scroll-item:hover .favorite-icon {
-            opacity: 1;
-            top: 8px;
-        }
-        .fiveUp .scroll-item {
-            width: calc((100vw - 10.1rem) / 5);
-        }
-
-        .nav-button:hover {
-            background-color: #222;
-            border-color: none;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .nav-button:active {
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .nav-button:disabled {
-            opacity: 0.5;
-            display: none;
-            cursor: not-allowed;
-            transform: translateY(-50%) scale(1);
-        }
-
-        .nav-button:disabled:hover {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-color: #ddd;
-            transform: translateY(-50%) scale(1);
-        }
-
-        /* Responsive design for above 900px */
-        @media (min-width: 900px) {
-            .scroll-container {
-                /* margin-left: 36px; */
-                padding-left: 36px;
-            }
-            .scroll-item:last-child {
-            margin-right: 36px; /* Ensure last item has space on the right */
-            }
-
-            header {
-                padding: 0 36px;
-            }
-            .wrapper {
-                width: 100%;
-                max-width: 1400px;
-                margin: 0 auto;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 36px;
-            }
-            .search p {
-                font-size: 16px;
-            }
-            .header {
-                margin-right: 36px;
-            }
-
-        .header {
-            display: flex;
-            justify-content: flex-start;
-            flex-direction: row;
-            /* align-items: center; */
-            margin-bottom: 12px;
-            margin-right: 12px;
-            gap: 12px;
-        }
-
-        .title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #222;
-            text-wrap: balance;
-        }
-
-        .header p {
-            color: #595959;
-            position: relative;
-            top: 7px;
-            font-size: 16px;
-        }
-
-            .nav-buttons {
-                display: block;
-            }
-            .nav-button.prev {
-                left: 0px; /* 36px margin - 12px overhang = 24px */
-            }
-            .nav-button.next {
-                right: 60px;
-            }
-            .scroll-wrapper {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 899px) {
-            .scroll-item {
-                width: calc((100vw - 4.5rem) / 2);
-
-            }
-            .fiveUp .scroll-item {
-                width: calc((100vw - 5.25rem) / 3);
-
-            }
-
-            .scroll-item:last-child {
-                margin-right: 12px; /* Ensure last item has space on the right */
-            }
-            .scroll-wrapper {
-                gap: 12px;
-            }
-        }
-
-        /* Additional styling for better visual hierarchy */
-
-        .scroll-item:hover .key-visual {
-            transform: scale(105%);
-        }
-
-        .welcome .scroll-item:hover .key-visual {
-            transform: none;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <header class="main-header">
@@ -462,7 +94,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
-                <div class="scroll-item" id="firstScrollItem">
+                <div class="scroll-item">
                     <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.4221303872_o0ym.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$89.50</div>
@@ -541,7 +173,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
-                <div class="scroll-item ratio-1-1" id="firstScrollItem">
+                <div class="scroll-item ratio-1-1">
                     <img class="key-visual" loading="lazy" src="assets/group02/il_600x600.1882952760_6mvk.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$52.75</div>
@@ -621,7 +253,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-5-4" id="scrollWrapper">
-                <div class="scroll-item one" id="firstScrollItem">
+                <div class="scroll-item one">
                     <img class="key-visual" loading="lazy" src="assets/group01/il_800x800.3572809372_3z8r.avif" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$22.99</div>
@@ -701,7 +333,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
-                <div class="scroll-item" id="firstScrollItem">
+                <div class="scroll-item">
                     <img class="key-visual" loading="lazy" src="assets/group04/il_800x800.2273317567_aqxd.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$47.50</div>
@@ -781,7 +413,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
-                <div class="scroll-item" id="firstScrollItem">
+                <div class="scroll-item">
                     <img class="key-visual" loading="lazy" src="assets/group05/il_800x800.1883035505_os2k.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$63.99</div>
@@ -861,7 +493,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-5-4" id="scrollWrapper">
-                <div class="scroll-item" id="firstScrollItem">
+                <div class="scroll-item">
                     <img class="key-visual" loading="lazy" src="assets/group06/il_800x800.2253818447_q9hq.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$56.25</div>
@@ -941,7 +573,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-4-5" id="scrollWrapper">
-                <div class="scroll-item" id="firstScrollItem">
+                <div class="scroll-item">
                     <img class="key-visual" loading="lazy" src="assets/group07/il_800x800.3234107217_o3wt.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$74.99</div>
@@ -1021,7 +653,7 @@
                 </button>
             </div>
             <div class="scroll-wrapper ratio-1-1" id="scrollWrapper">
-                <div class="scroll-item" id="firstScrollItem">
+                <div class="scroll-item">
                     <img class="key-visual" loading="lazy" src="assets/group08/il_600x600.1058517630_qxej.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
                     <div class="price">$45.99</div>
@@ -1095,19 +727,10 @@
                 this.scrollWrapper = container.querySelector('.scroll-wrapper');
                 this.prevBtn = container.querySelector('.nav-button.prev');
                 this.nextBtn = container.querySelector('.nav-button.next');
-                this.firstScrollItem = container.querySelector('.scroll-item');
-                this.widthDisplay = container.querySelector('[id*="widthDisplay"]');
                 
                 this.init();
             }
 
-            // Display the width of the card (for design purposes)
-            updateWidthDisplay() {
-                if (this.firstScrollItem && this.widthDisplay) {
-                    const actualWidth = this.firstScrollItem.getBoundingClientRect().width;
-                    this.widthDisplay.textContent = `Card width: ${Math.round(actualWidth)}px`;
-                }
-            }
 
 
             updateButtonStates() {
@@ -1139,7 +762,6 @@
             }
 
             handleResize() {
-                this.updateWidthDisplay();
             }
 
             init() {
@@ -1169,13 +791,6 @@
                     this.handleResize();
                 });
                 
-                // Initialize displays
-                this.handleResize();
-                
-                // Update on load
-                window.addEventListener('load', () => {
-                    this.updateWidthDisplay();
-                });
             }
         }
 
