@@ -1,17 +1,17 @@
-<!-- 
- NOTE NOTE NOTE NOTE NOTE NOTE NOTE 
- This code is rough, but it works
- as a proof of concept for a responsive 
- horizontal scroll module.
- -->
+<!--
+ NOTE NOTE NOTE NOTE NOTE NOTE NOTE
+ OPTION B: CLAMP() APPROACH
+ This version uses clamp(190px, calc, 350px) for bounded fluid sizing
+ Cards scale smoothly within min/max bounds using clamp()
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Prototype</title>
+    <title>B · max-width · Research Prototype</title>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles-b.css">
 </head>
 <body>
     <header class="main-header">
@@ -35,49 +35,6 @@
     <main>
         <div class="scroll-container">
             <div class="header">
-                <h2 class="title">Welcome back!</h2>
-            </div>
-            <div class="nav-buttons">
-                <button class="nav-button prev" id="prevBtn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 21.0005C15.7551 21.0008 15.5186 20.9107 15.336 20.7475L5.5 12.0005L15.341 3.25348C15.5405 3.0876 15.7967 3.00577 16.0555 3.0253C16.3143 3.04482 16.5553 3.16416 16.7277 3.3581C16.9001 3.55204 16.9903 3.8054 16.9794 4.06466C16.9684 4.32391 16.8571 4.56876 16.669 4.74748L8.5 12.0005L16.659 19.2535C16.8101 19.3879 16.9168 19.565 16.9652 19.7614C17.0135 19.9578 17.0012 20.1642 16.9298 20.3534C16.8585 20.5427 16.7314 20.7058 16.5654 20.8213C16.3994 20.9368 16.2022 20.9993 16 21.0005Z" fill="white"/>
-                    </svg>
-                </button>
-                <button class="nav-button next" id="nextBtn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.00003 20.9995C7.79737 20.9993 7.59953 20.9376 7.43275 20.8225C7.26597 20.7073 7.1381 20.5442 7.0661 20.3548C6.99409 20.1653 6.98135 19.9585 7.02955 19.7616C7.07776 19.5648 7.18464 19.3872 7.33603 19.2525L15.5 11.9995L7.33603 4.7465C7.1479 4.56779 7.0366 4.32294 7.02565 4.06368C7.0147 3.80443 7.10496 3.55107 7.27735 3.35712C7.44975 3.16318 7.69078 3.04384 7.94953 3.02432C8.20828 3.0048 8.46449 3.08662 8.66403 3.2525L18.5 11.9995L8.66403 20.7465C8.48143 20.9098 8.24498 20.9999 8.00003 20.9995Z" fill="white"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="scroll-wrapper ratio-4-5 welcome" id="scrollWrapper">
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-1.webp" alt="Item title and description">
-                </div>
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-2.webp" alt="Item title and description">
-                </div>
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-3.webp" alt="Item title and description">
-                </div>
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-4.webp" alt="Item title and description">
-                </div>
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-5.webp" alt="Item title and description">
-                </div>
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-6.webp" alt="Item title and description">
-                </div>
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-7.webp" alt="Item title and description">
-                </div>
-                <div class="scroll-item">
-                    <img class="key-visual" loading="lazy" src="assets/homeHub/card-8.webp" alt="Item title and description">
-                </div>
-            </div>
-        </div>
-        <div class="scroll-container">
-            <div class="header">
                 <h2 class="title">Today's top picks for you</h2>
                 <!-- <p>View all</p> -->
             </div>
@@ -97,7 +54,7 @@
                 <div class="scroll-item double-width">
                     <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.5309273310_k8au.webp" alt="Item title and description">
                     <img class="favorite-icon" src="assets/ui/favorite.webp" width="48" height="48" alt="Favorite">
-                    <div class="price">WIDE</div>
+                    <div class="price">$67.00</div>
                 </div>
                 <div class="scroll-item">
                     <img class="key-visual" loading="lazy" src="assets/group03/il_800x800.4221303872_o0ym.webp" alt="Item title and description">
@@ -732,7 +689,7 @@
                 this.scrollWrapper = container.querySelector('.scroll-wrapper');
                 this.prevBtn = container.querySelector('.nav-button.prev');
                 this.nextBtn = container.querySelector('.nav-button.next');
-                
+
                 this.init();
             }
 
@@ -748,18 +705,18 @@
 
             scrollToPosition(direction) {
                 if (!this.scrollWrapper) return;
-                
+
                 const currentScrollLeft = this.scrollWrapper.scrollLeft;
                 const containerWidth = this.scrollWrapper.clientWidth;
                 const scrollAmount = containerWidth * 0.8; // Scroll by 80% of visible width
                 let newScrollLeft;
-                
+
                 if (direction === 'next') {
                     newScrollLeft = currentScrollLeft + scrollAmount;
                 } else {
                     newScrollLeft = currentScrollLeft - scrollAmount;
                 }
-                
+
                 this.scrollWrapper.scrollTo({
                     left: newScrollLeft,
                     behavior: 'smooth'
@@ -787,15 +744,15 @@
                         this.updateButtonStates();
                     });
                 }
-                
+
                 // Initial button state
                 this.updateButtonStates();
-                
+
                 // Handle resize
                 window.addEventListener('resize', () => {
                     this.handleResize();
                 });
-                
+
             }
         }
 
