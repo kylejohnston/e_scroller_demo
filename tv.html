@@ -9,19 +9,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breakpoint-Based · Research Prototype</title>
+    <title>tv breakpoint</title>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/prototypes.css">
 </head>
 <body>
-    <header class="main-header" style="max-width: 1400px; margin-inline: auto;">
-        <div class="wrapper">
+    <header class="main-header">
+        <div class="wrapper" style="max-width: 1400px; padding-inline: 32px; margin-inline: auto;">
             <div class="logo"></div>
             <div class="search">
-                <p>Search for anything</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
+                <p>
+                    <a href="index.html">Current state</a>
+                     · 
+                    <a href="tv.html">tv breakpoint</a>
+                     · 
+                    <a href="tv-plus.html">tv+ breakpoint</a>
+                </p>
             </div>
             <!-- <div class="signin"><p>Sign In</p></div> -->
             <div class="cart">
@@ -38,6 +41,7 @@
         /* Constrain carousel to 1400px max-width and center */
         .scroll-container {
             max-width: 1400px;
+            padding-inline: 32px;
             margin-inline: auto;
         }
 
@@ -155,7 +159,7 @@
         }
         @media (min-width: 1400px) {
             body::before {
-                content: 'tv (1400px+)';
+                content: 'tv (1400px)';
             }
         }
     </style>
