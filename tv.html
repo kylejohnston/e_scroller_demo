@@ -1,20 +1,20 @@
 <!--
  NOTE NOTE NOTE NOTE NOTE NOTE NOTE
- OPTION B: CLAMP() APPROACH
- This version uses clamp(190px, calc, 350px) for bounded fluid sizing
- Cards scale smoothly within min/max bounds using clamp()
+ BREAKPOINT-BASED RESPONSIVE APPROACH
+ This version uses Etsy-style breakpoints with specific card counts per range
+ XS-MD: 2 cards + peek | LG-XL: 4 cards + peek | TV: 5 cards + peek
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B · max-width · Research Prototype</title>
+    <title>Breakpoint-Based · Research Prototype</title>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/prototypes.css">
 </head>
 <body>
-    <header class="main-header">
+    <header class="main-header" style="max-width: 1400px; margin-inline: auto;">
         <div class="wrapper">
             <div class="logo"></div>
             <div class="search">
@@ -32,6 +32,133 @@
             </div>
         </div>
     </header>
+    <style>
+        /* Breakpoint-based responsive styling - scoped to max.html only */
+
+        /* Constrain carousel to 1400px max-width and center */
+        .scroll-container {
+            max-width: 1400px;
+            margin-inline: auto;
+        }
+
+        /* Override base styles with breakpoint-specific card sizing */
+        /* XS-MD (0-899px): 2 cards + 40px peek, 12px gap */
+        .scroll-item {
+            width: calc((100vw - 4.5rem - 12px - 40px) / 2) !important;
+        }
+
+        /* LG-XL (900-1399px): 4 cards + 40px peek, 18px gap (3 gaps) */
+        @media (min-width: 900px) and (max-width: 1399px) {
+            .scroll-item {
+                width: calc((100vw - 9rem - 54px - 40px) / 4) !important;
+            }
+            .scroll-wrapper {
+                gap: 18px !important;
+            }
+        }
+
+        /* TV (1400px+): 5 cards + 40px peek, 18px gap (4 gaps) */
+        /* Page max-width is 1400px with 36px left padding + 36px right margin = 1328px available */
+        /* 1328px - (4 gaps × 18px) - 40px peek = 1216px for 5 cards = ~243px per card */
+        @media (min-width: 1400px) {
+            .scroll-item {
+                width: calc((1328px - 72px - 40px) / 5) !important;
+            }
+            .scroll-wrapper {
+                gap: 18px !important;
+            }
+        }
+
+        /* Max-width adjuster styling */
+        .max-width-adjuster {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 16px;
+            padding: 8px 12px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .max-width-adjuster label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+        }
+        .max-width-adjuster input[type="number"] {
+            width: 70px;
+            padding: 6px 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .max-width-adjuster input[type="number"]:focus {
+            outline: none;
+            border-color: #545454;
+        }
+        .max-width-adjuster .unit {
+            font-size: 12px;
+            color: #888;
+            margin-left: -4px;
+        }
+        .max-width-adjuster button {
+            font-size: 18px;
+            padding: 4px 10px;
+            background-color: #222;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .max-width-adjuster button:hover {
+            transform: scale(1.1);
+        }
+        .max-width-adjuster button:active {
+            transform: scale(0.95);
+        }
+
+        /* Breakpoint indicator - helpful for testing */
+        body::before {
+            content: 'XS (0-479px)';
+            position: fixed;
+            bottom: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 11px;
+            font-family: monospace;
+            border-radius: 4px;
+            z-index: 9999;
+        }
+        @media (min-width: 480px) {
+            body::before {
+                content: 'sm (480-639px)';
+            }
+        }
+        @media (min-width: 640px) {
+            body::before {
+                content: 'md (640-899px)';
+            }
+        }
+        @media (min-width: 900px) {
+            body::before {
+                content: 'lg (900-1199px)';
+            }
+        }
+        @media (min-width: 1200px) {
+            body::before {
+                content: 'xl (1200-1399px)';
+            }
+        }
+        @media (min-width: 1400px) {
+            body::before {
+                content: 'tv (1400px+)';
+            }
+        }
+    </style>
     <main>
         <div class="scroll-container">
             <div class="header">
@@ -762,6 +889,51 @@
             scrollContainers.forEach(container => {
                 new HorizontalScroller(container);
             });
+        });
+
+        // Breakpoint-based max-width adjuster - scoped to max.html only
+        document.addEventListener('DOMContentLoaded', () => {
+            const maxWidthInput = document.getElementById('maxWidthInput');
+            const applyBtn = document.getElementById('applyMaxWidth');
+            let dynamicStyleTag = null;
+
+            function updateMaxWidth() {
+                const maxWidthValue = parseInt(maxWidthInput.value);
+
+                // Validate input
+                if (isNaN(maxWidthValue) || maxWidthValue < 1) {
+                    alert('Please enter a valid number');
+                    return;
+                }
+
+                // Remove existing dynamic style if present
+                if (dynamicStyleTag) {
+                    dynamicStyleTag.remove();
+                    dynamicStyleTag = null;
+                }
+
+                // Apply max-width across all breakpoints
+                dynamicStyleTag = document.createElement('style');
+                dynamicStyleTag.innerHTML = `
+                    /* Dynamic max-width cap - generated by max.html adjuster */
+                    .scroll-item {
+                        max-width: ${maxWidthValue}px !important;
+                    }
+                `;
+                document.head.appendChild(dynamicStyleTag);
+                console.log(`Max-width set to ${maxWidthValue}px`);
+            }
+
+            // Event listeners
+            applyBtn.addEventListener('click', updateMaxWidth);
+            maxWidthInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    updateMaxWidth();
+                }
+            });
+
+            // Apply initial max-width on load
+            updateMaxWidth();
         });
     </script>
 </body>
