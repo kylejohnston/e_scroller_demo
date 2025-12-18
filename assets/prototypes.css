@@ -334,10 +334,10 @@ main {
     display: block;
   }
   .nav-button.prev {
-    left: 0px; /* 36px margin - 12px overhang = 24px */
+    left: -12px; /* 36px margin - 12px overhang = 24px */
   }
   .nav-button.next {
-    right: 60px;
+    right: 52px;
   }
   .scroll-wrapper {
     max-width: 100%;
