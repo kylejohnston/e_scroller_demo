@@ -179,7 +179,7 @@ main {
 /* OPTION B: CLAMP() APPROACH */
 .scroll-item {
   flex: 0 0 auto;
-  width: clamp(190px, calc((100vw - 8rem - 40px) / 5), 440px); /* Bounded fluid sizing with 40px peek */
+  width: clamp(190px, calc((100vw - 9rem - 40px) / 4), 240px); /* Bounded fluid sizing with 40px peek */
   height: auto;
   border-radius: 8px;
   display: flex;
