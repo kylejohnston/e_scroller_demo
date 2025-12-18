@@ -362,7 +362,7 @@ main {
 /* TV+ breakpoints */
 @media (min-width: 1599px) {
   .scroll-item {
-    width: clamp(150px, calc((100vw - 4.5rem - 64px) / 4), 256px);
+    width: clamp(150px, calc((100vw - 4.5rem - 64px) / 4), 240px);
   }
 }
 

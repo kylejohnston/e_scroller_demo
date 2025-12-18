@@ -45,7 +45,7 @@
         }
 
         .scroll-item {
-          width: clamp(150px, calc((100vw - 4.5rem - 64px) / 4), 256px);
+          width: clamp(150px, calc((100vw - 4.5rem - 64px) / 4), 240px);
         }
 
         /* Override base styles with breakpoint-specific card sizing */
@@ -65,10 +65,10 @@
         }
 
         /* TV (1400px+): 5 cards + 40px peek, 18px gap (4 gaps) */
-        /* Clamp-based responsive sizing: 5 cards with 256px max-width */
+        /* Clamp-based responsive sizing: 5 cards with 240px max-width */
         @media (min-width: 1400px) {
             .scroll-item {
-                width: clamp(150px, calc((100vw - 11rem) / 5), 256px) !important;
+                width: clamp(150px, calc((100vw - 11rem) / 5), 240px) !important;
             }
             .scroll-wrapper {
                 gap: 18px !important;
