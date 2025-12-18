@@ -88,6 +88,42 @@
         .max-width-adjuster button:active {
             transform: scale(0.95);
         }
+
+        /* Navigation button gradients */
+        .nav-button {
+            z-index: 2;
+        }
+
+        .nav-buttons::before,
+        .nav-buttons::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 108px;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 300ms ease;
+            z-index: 1;
+        }
+
+        .nav-buttons::before {
+            left: -8px;
+            background: linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, #FFF 75%);
+        }
+
+        .nav-buttons::after {
+            right: 32px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, #FFF 75%);
+        }
+
+        .nav-buttons.hide-prev::before {
+            opacity: 0;
+        }
+
+        .nav-buttons.hide-next::after {
+            opacity: 0;
+        }
     </style>
     <main>
         <div class="scroll-container">
@@ -744,6 +780,7 @@
             constructor(container) {
                 this.container = container;
                 this.scrollWrapper = container.querySelector('.scroll-wrapper');
+                this.navButtons = container.querySelector('.nav-buttons');
                 this.prevBtn = container.querySelector('.nav-button.prev');
                 this.nextBtn = container.querySelector('.nav-button.next');
 
@@ -753,10 +790,17 @@
 
 
             updateButtonStates() {
-                if (this.prevBtn && this.nextBtn && this.scrollWrapper) {
+                if (this.prevBtn && this.nextBtn && this.scrollWrapper && this.navButtons) {
                     const maxScroll = this.scrollWrapper.scrollWidth - this.scrollWrapper.clientWidth;
-                    this.prevBtn.disabled = this.scrollWrapper.scrollLeft <= 0;
-                    this.nextBtn.disabled = this.scrollWrapper.scrollLeft >= maxScroll - 1;
+                    const atStart = this.scrollWrapper.scrollLeft <= 0;
+                    const atEnd = this.scrollWrapper.scrollLeft >= maxScroll - 1;
+
+                    this.prevBtn.disabled = atStart;
+                    this.nextBtn.disabled = atEnd;
+
+                    // Toggle gradient visibility
+                    this.navButtons.classList.toggle('hide-prev', atStart);
+                    this.navButtons.classList.toggle('hide-next', atEnd);
                 }
             }
 
